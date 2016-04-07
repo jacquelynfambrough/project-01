@@ -1,26 +1,41 @@
-//server.js
-var express = require('express'),
-  bodyParser = require('body-parser');
+//server.js ---> SERVER!
+var express = require('express');
+  // bodyParser = require('body-parser');
 
-// generate a new express app and call it 'app'
+// calling express in app variable.
 var app = express();
 
+
+
+/**********
+SERVER
+***********/
 // serve static files in public
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 // body parser config to accept our datatypes
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use('/vendor', express.static(__dirname + '/bower_components'));
+
+console.log(" i'm server js... Hi I love you. We're best friends.");
+
+/**********
+ROUTES
+***********/
 
 
+//HTML endpoints********
+app.get('/', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 
+//JSON API Endpoints*************
 
+/**********
+SERVER
+***********/
 
-
-
-
-
-
-
+//listening on port 3000
 app.listen(process.env.PORT || 3000, function () {
   console.log('Example app listening at http://localhost:3000/');
 });
