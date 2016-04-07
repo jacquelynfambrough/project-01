@@ -1,0 +1,22 @@
+{
+  "name": "project-01",
+  "description": "project 1 - short story app",
+  "main": "server.js",
+  "authors": [
+    "YOUR_GITHUB_USERNAME <jacquelynfambrough@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "handlebars": "^4.0.5",
+    "bootstrap": "^3.3.6"
+  }
+}
