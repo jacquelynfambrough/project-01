@@ -2,6 +2,26 @@
 
 
 body {
-  background-color: black;
+  background:url("paper.jpg");
+  position:fixed;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.jumbotron  {
+  background:url("bookbanner.jpg");
+  background-size: cover;
+  margin-left:75px;
+  margin-right:75px;
+}
+
+
+.page-header{
   color:white;
+  text-align: center;
+}
+
+.page-header small {
+  color:#FFFFCC;
+  text-align: center;
 }

@@ -1,6 +1,6 @@
 //server.js ---> SERVER!
 var express = require('express');
-  // bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 
 // calling express in app variable.
 var app = express();
@@ -14,8 +14,8 @@ SERVER
 app.use(express.static(__dirname + '/public'));
 
 // body parser config to accept our datatypes
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use('/vendor', express.static(__dirname + '/bower_components'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/vendor', express.static(__dirname + '/bower_components'));
 
 console.log(" i'm server js... Hi I love you. We're best friends.");
 
@@ -28,7 +28,6 @@ ROUTES
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
-
 //JSON API Endpoints*************
 
 /**********
