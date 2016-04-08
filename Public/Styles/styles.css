@@ -3,7 +3,6 @@
 
 body {
   background:url("paper.jpg");
-  position:fixed;
   background-size:cover;
   background-repeat: no-repeat;
 }
@@ -24,4 +23,10 @@ body {
 .page-header small {
   color:#FFFFCC;
   text-align: center;
+}
+
+.image {
+
+
+
 }

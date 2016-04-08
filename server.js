@@ -15,7 +15,7 @@ app.use(express.static(__dirname + '/public'));
 
 // body parser config to accept our datatypes
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/vendor', express.static(__dirname + '/bower_components'));
+// app.use('/vendor', express.static(__dirname + '/bower_components'));
 
 console.log(" i'm server js... Hi I love you. We're best friends.");
 
