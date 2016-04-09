@@ -1,17 +1,18 @@
 // models/stories.js
 var mongoose = require('mongoose'),
-Stories = mongoose.Schema;
+Schema = mongoose.Schema,
+Author = require('./Author');
 
 
 var StorySchema = new Schema ({
+
   title: String,
-  author: [
+  author:
     {
-      type: Schema.Type.ObjectsId,
-      ref:"Author"
-    }
-  ],
-  datePublished: Date.now(),
+      type: Schema.Types.ObjectId,
+      ref: 'Author'
+    },
+  datePublished: String,
   genre: [String],
   content: String
 });

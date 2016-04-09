@@ -7,7 +7,7 @@ console.log("Sanity check! app.js running");
 
   $.ajax({
      method: 'GET',
-     url: '/api/stories',
+     url: '/api/story',
      success: handleReceiveAllStories,
      error: getError
   });
