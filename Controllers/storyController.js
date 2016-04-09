@@ -1,21 +1,21 @@
 var db = require('../models')
 // GET /api/albums
 function index(req, res) {
-  db.Author.find({}, function(err, foundAuthor){
+  db.Story.find({}, function(err, foundStories){
     if (err){
       return console.log("index error:", err);
     }
-    res.json(foundAuthor);
+    res.json(foundStories);
   });
 }
 
-
-function create(req, res) {
-  console.log('body', req.body);
-  db.Author.create(req.body, function(err, createdAuthor){
-    console.log('createdauthor', createdAuthor);
-    res.json(createdAuthor);
-  });
+// 
+// function create(req, res) {
+//   console.log('body', req.body);
+//   db.Story.create(req.body, function(err, createdAlbum){
+//     console.log('createdstories', createdAlbum);
+//     res.json(createdAlbum);
+//   });
 // }
 //
 // function show(req, res) {

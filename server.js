@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var app = express();
 
 
-
 /**********
 SERVER
 ***********/
@@ -16,6 +15,8 @@ app.use(express.static(__dirname + '/public'));
 // body parser config to accept our datatypes
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use('/vendor', express.static(__dirname + '/bower_components'));
+var controllers = require('./controllers');
+var db = require('./models');
 
 console.log(" i'm server js... Hi I love you. We're best friends.");
 
@@ -29,6 +30,12 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 //JSON API Endpoints*************
+app.get('/api', controllers.api.index);
+
+app.get('/api/story', controllers.story.index);
+//
+// app.post('/api/albums', controllers.albums.create);
+
 
 /**********
 SERVER

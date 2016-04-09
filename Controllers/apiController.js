@@ -1,12 +1,14 @@
-function index(req, res) {
-  res.json({
-    message: "Hello"
-    // documentation_url: "https://github.com/tgaff/tunely/api.md",
-    // base_url: "http://tunely.herokuapp.com",
-    endpoints: [
-      {method: "GET", path: "/api", description: "Describes available endpoints"}
-    ]
-  });
-}
-
+// function index(req, res) {
+//   res.json({
+//     message: "Hello"
+//     // documentation_url: "https://github.com/tgaff/tunely/api.md",
+//     // base_url: "http://tunely.herokuapp.com",
+//     endpoints: [
+//       {method: "GET", path: "/api", description: "Describes available endpoints"}
+//     ]
+//   });
+// }
+//
 module.exports.index = index;
+module.exports.authorController = author;
+module.exports.storiesController = storyController;

@@ -15,3 +15,6 @@ var StorySchema = new Schema ({
   genre: [String],
   content: String
 });
+
+var Story = mongoose.model('Story', StorySchema);
+module.exports = Story;
