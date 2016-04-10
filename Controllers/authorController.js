@@ -10,14 +10,15 @@ function index(req, res) {
 }
 
 
-// function create(req, res) {
-//   console.log('body', req.body);
-//   db.Author.create(req.body, function(err, createdAuthor){
-//     console.log('createdauthor', createdAuthor);
-//     res.json(createdAuthor);
-//   });
-// // }
-//
+function create(req, res) {
+  console.log('body', req.body);
+  db.Author.create(req.body, function(err, createdAuthor){
+    console.log('createdauthor', createdAuthor);
+    res.json(createdAuthor);
+
+  });
+}
+
 // function show(req, res) {
 //   // FILL ME IN !
 // }
@@ -34,7 +35,7 @@ function index(req, res) {
 // export public methods here
 module.exports = {
   index: index,
-  // create: create,
+  create: create,
   // show: show,
   // destroy: destroy,
   // update: update
