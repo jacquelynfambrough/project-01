@@ -1,7 +1,9 @@
 var db = require('../models')
 // GET /api/albums
 function index(req, res) {
-  db.Story.find({}, function(err, foundStories){
+  db.Story.find({})
+    .populate('author')
+    .exec(function(err, foundStories){
     if (err){
       return console.log("index error:", err);
     }
@@ -10,13 +12,13 @@ function index(req, res) {
 }
 
 //
-// function create(req, res) {
-//   console.log('body', req.body);
-//   db.Story.create(req.body, function(err, createdAlbum){
-//     console.log('createdstories', createdAlbum);
-//     res.json(createdAlbum);
-//   });
-// }
+function create(req, res) {
+  console.log('body', req.body);
+  db.Story.create(req.body, function(err, createdStories){
+    console.log('createdstories', createdStories);
+    res.json(createdAlbum);
+  });
+}
 //
 // function show(req, res) {
 //   // FILL ME IN !
@@ -34,7 +36,7 @@ function index(req, res) {
 // export public methods here
 module.exports = {
   index: index,
-  // create: create,
+  create: create,
   // show: show,
   // destroy: destroy,
   // update: update

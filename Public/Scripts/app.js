@@ -1,13 +1,22 @@
 //app.js
 //
-console.log("app.js running")
+console.log("Sanity Check: JS is working!");
+
+
+
+
+
+
+// compile handlebars template
+
+
 
 $(document).ready(function() {
 console.log("Sanity check! app.js running");
 
   $.ajax({
      method: 'GET',
-     url: '/api/story',
+     url: '/api/stories',
      success: handleReceiveAllStories,
      error: getError
   });
@@ -30,30 +39,42 @@ console.log("Sanity check! app.js running");
     // $(this).trigger('reset');
   // }
 
-  function handleReceiveAllStories(json) {
-    console.log(json);
-     json.forEach(renderStories);
-   }
-  function getError(err) {
-    console.log("uh..how do you?.... balenda", err);
+  // function handleReceiveAllStories(stories) {
+  //   console.log("json is now stories: ", stories);
+  //    stories.forEach(story);
+  //     renderStories(story);
+  //
+  //   }
+  //
+  // function getError(err) {
+  //   console.log("uh..how do you?.... balenda", err);
+  // }
+  //
+
+
+    // pass `allBooks` into the template function
+
+
+    // append html to the view
+
+
+
+  function handleReceiveAllStories(stories) {
+    console.log(stories);
+    stories.forEach(function(story){
+      renderStories(story);
+    });
   }
-  //  function handleFormSubmitResponse(data){
-  //    console.log("handleFormSubmitResponse:", data);
-  //    renderStories(data);
-  //  }
 
+  function getError(e) {
+    console.log('uh oh');
+    $('#publish').text('Failed to load books, is the server working?');
+  }
 
-    // function getError() {
-    //  console.log('Wow, okay.');
-    //
-    // }
-
-
-
-
-function renderStories(stories){
+function renderStories(storyList){
+  console.log("rendering story", storyList);
   var source = $('#published-template').html();
   var template = Handlebars.compile(source);
-  var newHtml = template(stories);
-  $('#published').prepend(newHtml);
+  var newHtml = template(storyList);
+  $('#publish').prepend(newHtml);
 }
