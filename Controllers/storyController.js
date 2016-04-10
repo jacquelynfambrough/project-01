@@ -11,25 +11,34 @@ function index(req, res) {
   });
 }
 
-
 function create(req, res) {
   console.log('body', req.body);
-  db.Story.create(req.body, function(err, createdStories){
-    console.log('createdstories', createdStories);
-    res.json(createdStories);
+
+  // split at comma and remove and trailing space
+  var genre = req.body.genre.split(',').map(function(item) { return item.trim(); } );
+  req.body.genres = genre;
+
+  var newStory = {
+    title: req.body.title,
+    datePublished: String,
+    genres: [req.body.genres],
+    content: req.body.content
+  }
+  console.log('pre-creation', newStory);
+  db.Story.create(newStory, function(err, createdStory){
+      if(err)
+       {
+         console.log('error', err);
+       }
+       console.log('success:', createdStory);
+       res.json(createdStory)
   });
 }
-// function create(req, res) {
-//   console.log('body', req.body);
-//
-//   // split at comma and remove and trailing space
-//   var genre = req.body.genre.split(',').map(function(item) { return item.trim(); } );
-//   req.body.genres = genre;
-//
+
 //   db.Story.create(req.body, function(err, createdStory) {
 //     if (err) { console.log('error', err); }
 //     console.log(createdStory);
-//     res.json(createdStory);
+//     res.json(C);
 //   });
 // }
 
