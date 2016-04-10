@@ -20,45 +20,27 @@ console.log("Sanity check! app.js running");
      success: handleReceiveAllStories,
      error: getError
   });
+
+  $("#newPub").on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+      method:'POST',
+      url: 'api/stories',
+      data: $(this).serialize(),
+      success: submitSuccess,
+      error: submitError
+    });
+  });
+
+
+
+
+
 });//doc end
     // $('#album-form form').on('submit', handleAlbumSubmit);
 
 
-  // function handleAlbumSubmit(event){
-  //
-  //   event.preventDefault();
-  //   var formData = $(this).serialize();
-  //   $.ajax({
-  //     method: 'POST',
-  //     url: '/api/albums',
-  //     data: formData,
-  //     success: handleFormSubmitResponse,
-  //     error: onErr
-  //   });
-
-    // $(this).trigger('reset');
-  // }
-
-  // function handleReceiveAllStories(stories) {
-  //   console.log("json is now stories: ", stories);
-  //    stories.forEach(story);
-  //     renderStories(story);
-  //
-  //   }
-  //
-  // function getError(err) {
-  //   console.log("uh..how do you?.... balenda", err);
-  // }
-  //
-
-
-    // pass `allBooks` into the template function
-
-
-    // append html to the view
-
-
-
+/////getting functions
   function handleReceiveAllStories(stories) {
     console.log(stories);
     stories.forEach(function(story){
@@ -71,6 +53,16 @@ console.log("Sanity check! app.js running");
     $('#publish').text('Failed to load books, is the server working?');
   }
 
+
+////////posting functions
+function submitSuccess(stories){
+  var newStory = $('#newPub input').val();
+  {
+    
+  }
+}
+
+//////renderstories function
 function renderStories(storyList){
   console.log("rendering story", storyList);
   var source = $('#published-template').html();
