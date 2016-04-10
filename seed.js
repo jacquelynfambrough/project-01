@@ -13,23 +13,8 @@ storyList.push({
 
 var authorList =[];
 authorList.push({
-          name: "Shaq"
-})
-
-
-
-
-// //
-// db.Story.remove({}, function(err, storyList){
-//   console.log("removed all stories");
-//   db.Story.create(storyList, function(err, storyList){
-//     if (err) { return console.log('ERROR', err); }
-//     console.log("created all stories:", storyList);
-//
-//     process.exit(); //makes seed stop running
-//   });
-//
-// });
+              name: "Shaq"
+            });
 
 db.Author.remove({}, function(err, authors) {
   console.log('removed all authors');

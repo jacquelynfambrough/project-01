@@ -12,26 +12,26 @@ function index(req, res) {
 }
 
 
-// function create(req, res) {
-//   console.log('body', req.body);
-//   db.Story.create(req.body, function(err, createdStories){
-//     console.log('createdstories', createdStories);
-//     res.json(createdStories);
-//   });
-// }
 function create(req, res) {
   console.log('body', req.body);
-
-  // split at comma and remove and trailing space
-  var genre = req.body.genre.split(',').map(function(item) { return item.trim(); } );
-  req.body.genres = genre;
-
-  db.Story.create(req.body, function(err, createdStory) {
-    if (err) { console.log('error', err); }
-    console.log(createdStory);
-    res.json(createdStory);
+  db.Story.create(req.body, function(err, createdStories){
+    console.log('createdstories', createdStories);
+    res.json(createdStories);
   });
 }
+// function create(req, res) {
+//   console.log('body', req.body);
+//
+//   // split at comma and remove and trailing space
+//   var genre = req.body.genre.split(',').map(function(item) { return item.trim(); } );
+//   req.body.genres = genre;
+//
+//   db.Story.create(req.body, function(err, createdStory) {
+//     if (err) { console.log('error', err); }
+//     console.log(createdStory);
+//     res.json(createdStory);
+//   });
+// }
 
 //
 // function show(req, res) {
