@@ -16,10 +16,12 @@ console.log("Sanity check! app.js running");
     var formData = $(this).serialize();
        console.log('formData',
         formData);
+        console.log("CALLING POST..");
        $.post('/api/stories', formData, function(story) {
          console.log('story after POST', story);
          renderStories(story);  //render the server's response
        });
+       console.log("ENDING POST...");
        $(this).trigger("reset");
      });
 

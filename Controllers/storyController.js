@@ -26,9 +26,16 @@ function create(req, res) {
   var genre = req.body.genre.split(',').map(function(item) { return item.trim(); } );
   req.body.genres = genre;
 
-  db.Story.create(req.body, function(err, createdStory) {
+  var newStory = {
+    title: req.body.title,
+    datePublished: String,
+    genres: [req.body.genres],
+    content: req.body.content
+  }
+  console.log('PRECREATION: ',newStory);
+  db.Story.create(newStory, function(err, createdStory) {
     if (err) { console.log('error', err); }
-    console.log(createdStory);
+    console.log("SUCCESS: " ,createdStory);
     res.json(createdStory);
   });
 }

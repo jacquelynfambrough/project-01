@@ -13,7 +13,7 @@ var StorySchema = new Schema ({
       ref: 'Author'
     },
   datePublished: String,
-  genre: [String],
+  genres: [String],
   content: String
 });
 
