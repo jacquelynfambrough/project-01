@@ -44,7 +44,7 @@ var authorList = [
         storyList.forEach(function (storyData) {
           var story = new db.Story({
             title: storyData.title,
-            genres: storyData.genre,
+            genres: [storyData.genre],
             content: storyData.content
           });
           db.Author.findOne({pseudonym: storyData.author}, function (err, foundAuthor) {
