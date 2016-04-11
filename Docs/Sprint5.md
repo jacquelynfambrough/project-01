@@ -1,5 +1,5 @@
 SPRINT 5
-
+profiles- click auth to see all stories
 Step 1.
 
 Step 2.

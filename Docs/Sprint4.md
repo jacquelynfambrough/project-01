@@ -1,4 +1,6 @@
 SPRINT 4
+--stretch
+auth
 
 Step 1.
 
