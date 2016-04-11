@@ -16,11 +16,9 @@ function create(req, res) {
 
   // split at comma and remove and trailing space
   var genre = req.body.genre.split(',').map(function(item) { return item.trim(); } );
-  req.body.genre = genre;
-    var newAuthor = {
-      pseudonym: req.body.author.pseudonym,
-      email: req.body.author.email
-    }
+
+
+
     var newStory = {
        title: req.body.title,
        genres: [genre],

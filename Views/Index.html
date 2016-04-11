@@ -125,19 +125,42 @@
                       <div class="col-md-9 col-xs-12">
                         <ul class="list-group">
                           <li class="list-group-item">
-                            <span class='title-author-combo'><b>{{title}}</b>  by  <em>{{author.pseudonym}}</em> - <u>{{author.email}}</u>
+                            <span class='title-author-combo'>
+                              <button type="button" class="btn btn-default btn-md"
+                              data-toggle="modal" data-target="#myModal">
+                              {{title}} </button> Author:<em>{{author.pseudonym}}</em>
+                              - Email<u>{{author.email}}</u>
                           </span>
                           </li>
 
                           <li class="list-group-item">
-                            <span class='story-genre'>{{genres}}</span>
-                          </li>
-
-                          <li class="list-group-item">
-                            <span class='story-content'>{{content}}</span>
+                            <span class='story-genre'>Genre:{{genres}}</span>
                           </li>
 
 
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+      </div>
+      <div class="modal-body">
+        {{content}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Edit Story</button>
+      </div>
+    </div>
+  </div>
+</div>
                         </ul>
                       </div>
 
