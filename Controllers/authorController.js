@@ -1,5 +1,5 @@
 var db = require('../models')
-// GET /api/albums
+// GET /api/stories
 function index(req, res) {
   db.Author.find({}, function(err, foundAuthor){
     if (err){
@@ -19,15 +19,26 @@ function create(req, res) {
   });
 }
 
-// function show(req, res) {
-//   // FILL ME IN !
-// }
-//
-// function destroy(req, res) {
-//   // FILL ME IN !
-// }
-//
+//delete
+function destroy(req, res) {
+  db.Story.findById(req.params.storyId, function(err, foundStory) {
+    console.log(foundStory);
+    // finding author within story
+    var correctAuthor = foundStory.author.id(req.params.authorId);
+    if (correctAuthor) {
+      correctAuthor.remove();
+      // resaving Story
+      foundStory.save(function(err, saved) {
+        // console.log('REMOVED ', correctAuthors.pseudonym, 'FROM ', saved.authors);
+        res.json(correctAuthor);
+      });
+    } else {
+      res.send(404);
+    }
+  });
 
+}
+//update author
 function update(req, res) {
   db.Story.findById(req.params.storyId, function(err, foundStory) {
     console.log(foundStory);
@@ -53,6 +64,6 @@ module.exports = {
   index: index,
   create: create,
   // show: show,
-  // destroy: destroy,
-  // update: update
+  destroy: destroy,
+  update: update
 };
