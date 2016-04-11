@@ -1,5 +1,5 @@
 var db = require('../models')
-// GET /api/albums
+// GET /api/stories
 function index(req, res) {
   db.Story.find({})
     .populate('author')
@@ -44,7 +44,7 @@ function create(req, res) {
        foundStory.email = req.body.email;
        foundStory.pseudonym = req.body.pseudonym;
        foundStory.genres = [req.body.genre];
-       foundStory.save(function(err, savedAlbum) {
+       foundStory.save(function(err, savedStory) {
          if(err) { console.log('save fail'); }
          res.json(savedStory);
        });
