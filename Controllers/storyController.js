@@ -54,11 +54,15 @@ function create(req, res) {
 
 
 
-//
-// function show(req, res) {
-//   // FILL ME IN !
-// }
-//
+   function show(req, res) {
+     db.Story.findById(req.params.storyId)
+       .populate('author')
+       .exec(function(err, foundStory) {
+       if(err) { console.log('storyController.show error', err); }
+       console.log('storyController.show responding with', foundStory);
+       res.json(foundStory);
+     });
+   }
 // function destroy(req, res) {
 //   // FILL ME IN !
 // }
