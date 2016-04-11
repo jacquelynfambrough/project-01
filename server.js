@@ -30,13 +30,24 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 //JSON API Endpoints*************
+
+//story
 app.get('/api', controllers.api.index);
 
 app.get('/api/stories', controllers.story.index);
 
 app.post('/api/stories', controllers.story.create);
 
-app.put('/api/stories/:storyId/authors/:authorId', controllers.story.update);
+app.put('/api/stories/:storyId', controllers.story.update);
+
+//author
+
+app.get('/api/stories/:storyId/authors', controllers.author.index);
+
+app.post('/api/stories/:albumId/authors', controllers.author.create);
+
+app.put('/api/stories/:storyId/authors/:authorId', controllers.author.update);
+
 /**********
 SERVER
 ***********/
