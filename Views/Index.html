@@ -124,9 +124,11 @@
                         <ul class="list-group">
                           <li class="list-group-item">
 
-                              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                              Launch demo modal</button>
-                              <i>{{title}}</i>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            <i>{{title}}</i>
+                            </button>
+
                               Author:{{author.pseudonym}}
                              - Email:<u>{{author.email}}</u>
                              <li class="list-group-item">
@@ -154,7 +156,20 @@
                  </div>
                  <!-- end one album -->
 
-
+                 <!-- Modal -->
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+                        </div>
+                        <div class="modal-body">
+                          {{content}}
+                        </div>    
+                      </div>
+                    </div>
+                  </div>
 
 
 
@@ -186,21 +201,8 @@
                                 </div>
 
 
-                                <!-- Modal to display story -->
-                                <!-- Modal -->
-         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
-              </div>
-              <div class="modal-body">
-                {{content}}
-              </div>
-            </div>
-          </div>
-        </div>
+
+
       </script>
      </div>
     </section>
