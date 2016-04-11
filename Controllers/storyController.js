@@ -35,20 +35,22 @@ function create(req, res) {
      });
    }
 
-   var editedStory = {
-      title: req.body.title,
-      genres: [genre],
-      content: req.body.content
-    }
-    console.log('PRECREATION: ',editedStory);
-    db.Story.findById(editedStory)
-     .populate('author')
-     .exec(function(err, editedStory) {
-      if(err) { console.log('error', err);}
-      console.log("SUCCESS", createdStory);
-      res.json(createdStory);
-    });
-  }
+   function update(req, res) {
+     console.log('updating with data', req.body);
+     db.Story.findById(req.params.storyId)
+      .populate('author')
+      .exec(function(err, foundStory) {
+       if(err) { console.log('storyController.update error', err); }
+       foundStory.email = req.body.email;
+       foundStory.pseudonym = req.body.pseudonym;
+       foundStory.genres = [req.body.genre];
+       foundStory.save(function(err, savedAlbum) {
+         if(err) { console.log('save fail'); }
+         res.json(savedStory);
+       });
+     });
+
+   }
 
 
 
@@ -61,9 +63,7 @@ function create(req, res) {
 //   // FILL ME IN !
 // }
 //
-// function update(req, res) {
-//   // FILL ME IN !
-// }
+
 
 
 // export public methods here
