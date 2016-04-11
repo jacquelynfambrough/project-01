@@ -36,6 +36,8 @@ app.get('/api/stories', controllers.story.index);
 
 app.post('/api/stories', controllers.story.create);
 
+app.put('api/stories/:story_id', controllers.story.update);
+
 
 /**********
 SERVER
