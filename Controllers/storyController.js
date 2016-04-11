@@ -19,6 +19,7 @@ function create(req, res) {
 
 
 
+
     var newStory = {
        title: req.body.title,
        genres: [genre],
@@ -33,6 +34,8 @@ function create(req, res) {
        res.json(createdStory);
      });
    }
+
+
 
 
 
@@ -53,7 +56,7 @@ function create(req, res) {
 // export public methods here
 module.exports = {
   index: index,
-  create: create,
+  create: create
   // show: show,
   // destroy: destroy,
   // update: update

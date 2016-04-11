@@ -25,6 +25,7 @@ console.log("Sanity check! app.js running");
         $(this).trigger("reset");
       });
 
+
     });//end doc ready
 
 

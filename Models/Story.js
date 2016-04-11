@@ -12,6 +12,7 @@ var StorySchema = new Schema ({
       type: Schema.Types.ObjectId,
       ref: 'Author'
     },
+  // datePublished: String,
   genres: [String],
   content: String
 });
