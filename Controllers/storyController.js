@@ -35,7 +35,20 @@ function create(req, res) {
      });
    }
 
-
+   var editedStory = {
+      title: req.body.title,
+      genres: [genre],
+      content: req.body.content
+    }
+    console.log('PRECREATION: ',editedStory);
+    db.Story.findById(editedStory)
+     .populate('author')
+     .exec(function(err, editedStory) {
+      if(err) { console.log('error', err);}
+      console.log("SUCCESS", createdStory);
+      res.json(createdStory);
+    });
+  }
 
 
 
@@ -59,5 +72,5 @@ module.exports = {
   create: create
   // show: show,
   // destroy: destroy,
-  // update: update
+  update: update
 };
