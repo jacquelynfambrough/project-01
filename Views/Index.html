@@ -118,19 +118,27 @@
 
 
                   <!-- begin album internal row -->
-                  
+
 
                       <div class="col-md-9 col-xs-12">
                         <ul class="list-group">
                           <li class="list-group-item">
 
-                              <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                              Launch demo modal</button> -->
+                              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                              Launch demo modal</button>
                               <i>{{title}}</i>
                               Author:{{author.pseudonym}}
                              - Email:<u>{{author.email}}</u>
                              <li class="list-group-item">
                                <span class='story-genre'>Genre:{{genres}}</span>
+                               <button type="button" class="btn btn-default btn-md"
+                                data-toggle="modal" data-target="#myEditModal">
+                                  <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                                  <span class="glyphicon glyphicon-remove"></span>
+
+
+
                              </li>
                              <li class="list-group-item">
                                <span class='story-content'>{{content}}</span>
@@ -145,23 +153,14 @@
                    </div>
                  </div>
                  <!-- end one album -->
-               </script>
-              </div>
-             </section>
-            </body>
-           </html>
-
-                             <!-- <button type="button" class="btn btn-default btn-md"
-                             data-toggle="modal" data-target="#myEditModal">
-                             <span class="glyphicon glyphicon-pencil"></span></button>  <span class="glyphicon glyphicon-remove"></span>
-                         </span>
-                          </li> -->
 
 
 
-                          <!--modal to display edit window-->
 
-                          <!-- <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myEditModalLabel">
+
+                          <!-- modal to display edit window-->
+
+                          <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myEditModalLabel">
                             <div class="modal-dialog2" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -169,10 +168,10 @@
                                   <span aria-hidden="true">&times;</span></button>
                                   <h4 class="modal-title" id="myEditModalLabel">{{title}}</h4>
                                 </div>
-                                <div class="modal-body"> -->
+                                <div class="modal-body">
                                   <!-- Text input: Pen Name-->
 
-                                    <!-- <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required="">{{author.pseudonym}}</input>
+                                    <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required="">{{author.pseudonym}}</input>
 
                                     <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required="">{{author.email}}</input>
 
@@ -184,12 +183,12 @@
 
                                     <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit Changes</button>
 
-                                </div> -->
+                                </div>
 
 
                                 <!-- Modal to display story -->
                                 <!-- Modal -->
-        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -201,4 +200,9 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
+      </script>
+     </div>
+    </section>
+   </body>
+  </html>
