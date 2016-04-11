@@ -27,10 +27,26 @@ function create(req, res) {
 //   // FILL ME IN !
 // }
 //
-// function update(req, res) {
-//   // FILL ME IN !
-// }
 
+function update(req, res) {
+  db.Story.findById(req.params.storyId, function(err, foundStory) {
+    console.log(foundStory);
+    //finding author within story
+    var correct = foundStory.authors.id(req.params.authorId);
+    if (correctAuthor) {
+      console.log(req.body);
+      correctAuthor.pseudonym = req.body.pseudonym;
+      correctAuthor.email = req.body.email;
+      foundStory.save(function(err, saved) {
+        console.log('UPDATED', correctAuthor, 'IN ', saved.authors);
+        res.json(correctAuthor);
+      });
+    } else {
+      res.send(404);
+    }
+  });
+
+}
 
 // export public methods here
 module.exports = {
