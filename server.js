@@ -38,9 +38,9 @@ app.get('/api/stories', controllers.story.index);
 
 app.post('/api/stories', controllers.story.create);
 
-app.delete('/api/stories/:storyId', controllers.story.destroy);
-
-app.put('/api/stories/:storyId', controllers.story.update);
+// app.delete('/api/stories/:storyId', controllers.story.destroy);
+// 
+// app.put('/api/stories/:storyId', controllers.story.update);
 
 //author
 
@@ -48,9 +48,9 @@ app.get('/api/stories/:storyId/authors', controllers.author.index);
 
 app.post('/api/stories/:storyId/authors', controllers.author.create);
 
-app.delete('/api/stories/:storyId/authors/:authorId', controllers.author.destroy);
+// app.delete('/api/stories/:storyId/authors/:authorId', controllers.author.destroy);
 
-app.put('/api/stories/:storyId/authors/:authorId', controllers.author.update);
+// app.put('/api/stories/:storyId/authors/:authorId', controllers.author.update);
 
 /**********
 SERVER

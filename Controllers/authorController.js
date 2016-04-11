@@ -19,51 +19,51 @@ function create(req, res) {
   });
 }
 
-//delete
-function destroy(req, res) {
-  db.Story.findById(req.params.storyId, function(err, foundStory) {
-    console.log(foundStory);
-    // finding author within story
-    var correctAuthor = foundStory.author.id(req.params.authorId);
-    if (correctAuthor) {
-      correctAuthor.remove();
-      // resaving Story
-      foundStory.save(function(err, saved) {
-        // console.log('REMOVED ', correctAuthors.pseudonym, 'FROM ', saved.authors);
-        res.json(correctAuthor);
-      });
-    } else {
-      res.send(404);
-    }
-  });
+// //delete
+// function destroy(req, res) {
+//   db.Story.findById(req.params.storyId, function(err, foundStory) {
+//     console.log(foundStory);
+//     // finding author within story
+//     var correctAuthor = foundStory.author.id(req.params.authorId);
+//     if (correctAuthor) {
+//       correctAuthor.remove();
+//       // resaving Story
+//       foundStory.save(function(err, saved) {
+//         // console.log('REMOVED ', correctAuthors.pseudonym, 'FROM ', saved.authors);
+//         res.json(correctAuthor);
+//       });
+//     } else {
+//       res.send(404);
+//     }
+//   });
 
-}
-//update author
-function update(req, res) {
-  db.Story.findById(req.params.storyId, function(err, foundStory) {
-    console.log(foundStory);
-    //finding author within story
-    var correct = foundStory.authors.id(req.params.authorId);
-    if (correctAuthor) {
-      console.log(req.body);
-      correctAuthor.pseudonym = req.body.pseudonym;
-      correctAuthor.email = req.body.email;
-      foundStory.save(function(err, saved) {
-        console.log('UPDATED', correctAuthor, 'IN ', saved.authors);
-        res.json(correctAuthor);
-      });
-    } else {
-      res.send(404);
-    }
-  });
+// }
+// //update author
+// function update(req, res) {
+//   db.Story.findById(req.params.storyId, function(err, foundStory) {
+//     console.log(foundStory);
+//     //finding author within story
+//     var correct = foundStory.authors.id(req.params.authorId);
+//     if (correctAuthor) {
+//       console.log(req.body);
+//       correctAuthor.pseudonym = req.body.pseudonym;
+//       correctAuthor.email = req.body.email;
+//       foundStory.save(function(err, saved) {
+//         console.log('UPDATED', correctAuthor, 'IN ', saved.authors);
+//         res.json(correctAuthor);
+//       });
+//     } else {
+//       res.send(404);
+//     }
+//   });
 
-}
+// }
 
 // export public methods here
 module.exports = {
   index: index,
   create: create,
   // show: show,
-  destroy: destroy,
-  update: update
+  // destroy: destroy,
+  // update: update
 };

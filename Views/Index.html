@@ -6,17 +6,17 @@
 
     <title>A Picture worth 10,000 characters.</title>
 
-    <!-- STYLESHEETS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="styles/styles.css">
+        <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
-<!-- VENDOR SCRIPTS -->
-<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
 
-<!-- APPLICATION SCRIPTS -->
-<script src="./scripts/app.js"></script>
+    <!-- APPLICATION SCRIPTS -->
+    <script src="./scripts/app.js"></script>
 
   </head>
   <body>
@@ -30,8 +30,8 @@
       </div>
     </div>
     <div class="col-sm-offset-3 col-sm-6 col-sm-offset-sm-3">
-         <!-- https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwjt_Z2atf7LAhUO12MKHQOtAIUQjRwIBw&url=http%3A%2F%2Fwww.buzzfeed.com%2Fmjs538%2F50-unexplainable-black-white-photos&psig=AFQjCNGufbRLDqUXgESPwQGGmRRcI2-hAQ&ust=1460182885241991 -->
-        <p><img src="https://madeleineswann.files.wordpress.com/2012/08/wtf-photos-from-old-times-e1323722277454.jpg"/></p>
+    <!-- https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwjt_Z2atf7LAhUO12MKHQOtAIUQjRwIBw&url=http%3A%2F%2Fwww.buzzfeed.com%2Fmjs538%2F50-unexplainable-black-white-photos&psig=AFQjCNGufbRLDqUXgESPwQGGmRRcI2-hAQ&ust=1460182885241991 -->
+      <p><img src="https://madeleineswann.files.wordpress.com/2012/08/wtf-photos-from-old-times-e1323722277454.jpg"/></p>
     </div> -->
     <section id='Story-form' class="container">
      <div class="row">
@@ -90,7 +90,7 @@
            <div class="form-group">
 
              <div class="col-md-4">
-               <button id="addsinglebutton" name="addsinglebutton" class="btn btn-primary">Submit</button>
+               <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
              </div>
            </div>
          </fieldset>
@@ -125,34 +125,56 @@
                       <div class="col-md-9 col-xs-12">
                         <ul class="list-group">
                           <li class="list-group-item">
-                            <span class='title-author-combo'>
-                              <button type="button" class="btn btn-default btn-md"
-                              data-toggle="modal" data-target="#myModal">
-                              {{title}} </button> Author:<em>{{author.pseudonym}}</em>
-                              - Email:<u>{{author.email}}</u>   <button type="button" class="btn btn-default btn-md"
-                              data-toggle="modal" data-target="#myEditModal">
-                              <span class="glyphicon glyphicon-pencil"></span></button>  <span class="glyphicon glyphicon-remove"></span>
-                          </span>
-                          </li>
 
-                          <li class="list-group-item">
-                            <span class='story-genre'>Genre:{{genres}}</span>
-                          </li>
+                              <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                              Launch demo modal</button> -->
+                              <i>{{title}}</i>
+                              Author:{{author.pseudonym}}
+                             - Email:<u>{{author.email}}</u>
+                             <li class="list-group-item">
+                               <span class='story-genre'>Genre:{{genres}}</span>
+                             </li>
+                             <li class="list-group-item">
+                               <span class='story-content'>{{content}}</span>
+                             </li>
+                           </div>
+                          </div>
+                         <!-- end of album internal row -->
+                         <div class='panel-footer'>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <!-- end one album -->
+               </script>
+              </div>
+             </section>
+            </body>
+           </html>
+
+                             <!-- <button type="button" class="btn btn-default btn-md"
+                             data-toggle="modal" data-target="#myEditModal">
+                             <span class="glyphicon glyphicon-pencil"></span></button>  <span class="glyphicon glyphicon-remove"></span>
+                         </span>
+                          </li> -->
+
+
 
                           <!--modal to display edit window-->
 
-                          <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <!-- <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myEditModalLabel">
                             <div class="modal-dialog2" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span></button>
-                                  <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+                                  <h4 class="modal-title" id="myEditModalLabel">{{title}}</h4>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body"> -->
                                   <!-- Text input: Pen Name-->
 
-                                    <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required="">{{author.pseudonym}}</input>
+                                    <!-- <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required="">{{author.pseudonym}}</input>
 
                                     <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required="">{{author.email}}</input>
 
@@ -164,41 +186,21 @@
 
                                     <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit Changes</button>
 
-                                </div>
+                                </div> -->
 
 
-                          <!-- Modal to display story -->
-                          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span></button>
-                                  <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
-                                </div>
-                                <div class="modal-body">
-                                  {{content}}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </ul>
-                      </div>
-
-                    </div>
-                    <!-- end of album internal row -->
-
-                     <div class='panel-footer'>
-                    </div>
-
-                  </div>
-                </div>
+                                <!-- Modal to display story -->
+                                <!-- Modal -->
+        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+              </div>
+              <div class="modal-body">
+                {{content}}
               </div>
             </div>
-              <!-- end one album -->
-            </script>
           </div>
-        </section>
-
-  </body>
-</html>
+        </div> -->

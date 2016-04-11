@@ -14,30 +14,32 @@ console.log("Sanity check! app.js running");
   $("#newPub").on('submit', function(event){
      event.preventDefault();
      var formData = $(this).serialize();
+     console.log(formData);
         $.post('/api/stories', formData, function(story) {
           console.log('story after POST', story);
           renderStories(story);  //render the server's response
         });
+
+
         $(this).trigger("reset");
+
       });
+
 //updating data in modal window
-  $("#myEditModal").on('submit', function(event){
-      event.preventDefault();
-      var formData = $(this).serialize();
-        $.put('/api/stories/:id_story', formData, function (editedStory){
-          console.log('story after PUT', editedStory){
-          renderStories(editedStory);
-        }
-          }
-        });
-
-
-    });//end doc ready
+  // $("#myEditModal").on('submit', function(event){
+  //     event.preventDefault();
+  //     var formData = $(this).serialize();
+  //       $.put('/api/stories/:id_story', formData, function (editedStory){
+  //         console.log('story after PUT', editedStory){
+  //         renderStories(editedStory);
+  //       }
+  //         }
+  //       });
 
 
 
 
-}
+
 
 function renderStories(storyList){
   console.log("rendering story", storyList);
@@ -48,3 +50,4 @@ function renderStories(storyList){
   console.log(newHtml);
   $('#publish').prepend(newHtml);
 }
+});//end doc ready
