@@ -48,7 +48,7 @@
            <!-- Text input: Pen Name-->
            <div class="form-group">
              <div class="col-md-4">
-             <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required="">
+             <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required=""></input>
 
             </div>
            </div>
@@ -57,14 +57,14 @@
            <!-- Text input: email-->
            <div class="form-group">
              <div class="col-md-4" >
-             <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required="">
+             <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required=""></input>
 
              </div>
            </div>
            <!-- Text input: Genre -->
            <div class="form-group">
              <div class="col-md-4">
-             <input id="genre" name="genre" type="text" placeholder="Genre" class="form-control input-md" required="">
+             <input id="genre" name="genre" type="text" placeholder="Genre" class="form-control input-md" required=""></input>
 
             </div>
            </div>
@@ -72,7 +72,7 @@
            <!-- Text input: Title-->
            <div class="form-group">
              <div class="col-md-4">
-             <input id="title" name="title" type="text" placeholder="Story Title" class="form-control input-md" required="">
+             <input id="title" name="title" type="text" placeholder="Story Title" class="form-control input-md" required=""></input>
 
              </div>
            </div>
@@ -129,7 +129,9 @@
                               <button type="button" class="btn btn-default btn-md"
                               data-toggle="modal" data-target="#myModal">
                               {{title}} </button> Author:<em>{{author.pseudonym}}</em>
-                              - Email:<u>{{author.email}}</u>   <span class="glyphicon glyphicon-pencil"></span> <span class="glyphicon glyphicon-remove"></span>
+                              - Email:<u>{{author.email}}</u>   <button type="button" class="btn btn-default btn-md"
+                              data-toggle="modal" data-target="#myEditModal">
+                              <span class="glyphicon glyphicon-pencil"></span></button>  <span class="glyphicon glyphicon-remove"></span>
                           </span>
                           </li>
 
@@ -137,26 +139,49 @@
                             <span class='story-genre'>Genre:{{genres}}</span>
                           </li>
 
+                          <!--modal to display edit window-->
+
+                          <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog2" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span></button>
+                                  <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <!-- Text input: Pen Name-->
+
+                                    <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required="">{{author.pseudonym}}</input>
+
+                                    <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required="">{{author.email}}</input>
+
+                                    <input id="genre" name="genre" type="text" placeholder="Genre" class="form-control input-md" required="">{{genres}}</input>
+
+                                    <input id="title" name="title" type="text" placeholder="Story Title" class="form-control input-md" required="">{{title}}</input>
+
+                                    <textarea class="form-control" id="content" name="content" required="" placeholder="Write your story here!">{{content}}</textarea>
+
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit Changes</button>
+
+                                </div>
 
 
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
-      </div>
-      <div class="modal-body">
-        {{content}}
-      </div>
-    </div>
-  </div>
-</div>
+                          <!-- Modal to display story -->
+                          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span></button>
+                                  <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                  {{content}}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </ul>
                       </div>
 
