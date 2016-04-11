@@ -63,10 +63,15 @@ function create(req, res) {
        res.json(foundStory);
      });
    }
-// function destroy(req, res) {
-//   // FILL ME IN !
-// }
-//
+
+
+   function destroy(req, res) {
+     db.Story.findOneAndRemove({ _id: req.params.storyId }, function(err, foundStory){
+       // note you could send just send 204, but we're sending 200 and the deleted entity
+       res.json(foundStory);
+     });
+   }
+
 
 
 
