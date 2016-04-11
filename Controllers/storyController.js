@@ -16,31 +16,27 @@ function create(req, res) {
 
   // split at comma and remove and trailing space
   var genre = req.body.genre.split(',').map(function(item) { return item.trim(); } );
-  req.body.genres = genre;
+  req.body.genre = genre;
+    var newAuthor = {
+      pseudonym: req.body.author.pseudonym,
+      email: req.body.author.email
+    }
+    var newStory = {
+       title: req.body.title,
+       genres: [genre],
+       content: req.body.content
+     }
+     console.log('PRECREATION: ',newStory);
+     db.Story.create(newStory)
+      .populate('author')
+      .exec(function(err, createdStory) {
+       if(err) { console.log('error', err);}
+       console.log("SUCCESS", createdStory);
+       res.json(createdStory);
+     });
+   }
 
-  var newStory = {
-    title: req.body.title,
-    datePublished: String,
-    genres: [req.body.genres],
-    content: req.body.content
-  }
-  console.log('pre-creation', newStory);
-  db.Story.create(newStory, function(err, createdStory){
-      if(err)
-       {
-         console.log('error', err);
-       }
-       console.log('success:', createdStory);
-       res.json(createdStory)
-  });
-}
 
-//   db.Story.create(req.body, function(err, createdStory) {
-//     if (err) { console.log('error', err); }
-//     console.log(createdStory);
-//     res.json(C);
-//   });
-// }
 
 //
 // function show(req, res) {

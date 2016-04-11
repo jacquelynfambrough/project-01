@@ -7,23 +7,25 @@ console.log("Sanity check! app.js running");
   $.get('/api/stories').success(function (stories) {
     stories.forEach(function(story) {
       renderStories(story);
+
     });
   });
 
-
   $("#newPub").on('submit', function(event){
-    event.preventDefault();
-    var formData = $(this).serialize();
-       console.log('formData',formData);
-       $.post('/api/stories', formData, function(story) {
-         console.log('story after POST', story);
-         renderStories(story);  //render the server's response
-       });
-      //  $(this).trigger("reset");
+     event.preventDefault();
+     var formData = $(this).serialize();
+        console.log('formData',
+         formData);
+         console.log("CALLING POST..");
+        $.post('/api/stories', formData, function(story) {
+          console.log('story after POST', story);
+          renderStories(story);  //render the server's response
+        });
+        console.log("ENDING POST...");
+        $(this).trigger("reset");
+      });
 
-     });
-
-   });//end doc ready
+    });//end doc ready
 
 
 

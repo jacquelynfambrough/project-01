@@ -1,56 +1,68 @@
-//seed.js
-var db = require("./models");
+// This file allows us to seed our application with data
+// simply run: `node seed.js` from the root of this project folder.
 
-var storyList =[];
-storyList.push({
-              title: 'Story Example',
-              author: "Shaq",
-              datePublished: 'January 1, 2016',
-              genre: [ 'horror' ],
-              content: "It was a dark and stormy night at your mom's house...."
+var db = require('./models');
 
-            });
+var storyList = [
+  {
+  title: "Whatever",
+  author: "Jackie",
+  genres: "Sci-Fi",
+  content: "The aliens are coming! IDK!!!"
+},
+{
+  title: "Whatever part II",
+  author: "Coolio",
+  genres: "Sci-Fi",
+  content: "The aliens are coming back! GREAT!!!"
+}];
 
-var authorList =[];
-authorList.push({
-              name: "Shaq"
-            });
-
-db.Author.remove({}, function(err, authors) {
-  console.log('removed all authors');
-  db.Author.create(authorList, function(err, authors){
-    if (err) {
-      console.log(err);
-      return;
-    }
-    console.log('recreated all authors');
-    console.log("created", authors.length, "authors");
+var authorList = [
+  {
+    pseudonym: "Jackie",
+    email: "jacquelynfambrough@gmail.com"
+  },
+  {
+    pseudonym: "Coolio",
+    email:"coolio@aol.com"
+  }];
 
 
-    db.Story.remove({}, function(err, stories){
-      console.log('removed all stories');
-      storyList.forEach(function (storyData) {
-        var story = new db.Story({
-          title: storyData.title,
-          image: storyData.image,
-          releaseDate: storyData.releaseDate
-        });
-        db.Author.findOne({name: storyData.author}, function (err, foundAuthor) {
-          console.log('found author ' + foundAuthor.name + ' for story ' + story.title);
-          if (err) {
-            console.log(err);
-            return;
-          }
-          story.author = foundAuthor;
-          story.save(function(err, savedStory){
+  db.Author.remove({}, function(err, authors) {
+    console.log('removed all authors');
+    db.Author.create(authorList, function(err, authors){
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log('recreated all authors', authorList);
+
+
+
+      db.Story.remove({}, function(err, stories){
+        console.log('removed all stories');
+        storyList.forEach(function (storyData) {
+          var story = new db.Story({
+            title: storyData.title,
+            genres: storyData.genre,
+            content: storyData.content
+          });
+          db.Author.findOne({pseudonym: storyData.author}, function (err, foundAuthor) {
+
             if (err) {
-              return console.log(err);
+              console.log(err);
+              return;
             }
-            console.log('saved ' + savedStory.title + ' by ' + foundAuthor.name);
+            story.author = foundAuthor;
+            story.save(function(err, savedStory){
+              if (err) {
+                return console.log(err);
+              }
+
+            });
           });
         });
       });
-    });
 
+    });
   });
-});
