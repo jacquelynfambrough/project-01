@@ -29,12 +29,13 @@ console.log("Sanity check! app.js running");
 $('#publish').on('click', '.btn-danger', handleDeleteStoryClick);
 
 function handleDeleteStoryClick(e){
-    var dangerId = $(this).closest('id');
+    var storyId = $(this).closest('button').data("story-id");
+    console.log(storyId);
     $.ajax({
-    method:'DELETE',
-     url:'/api/stories/:storyId' + e.attributes.handleid.value,
-    success: handleDeleteonSuccess
-  });
+      method:'DELETE',
+      url:'/api/stories/' + storyId,
+      success: handleDeleteonSuccess
+    });
 
   };
 
@@ -69,12 +70,12 @@ function handleDeleteonSuccess(data) {
 
 
 function renderStories(storyList){
-  console.log("rendering story", storyList);
+
   var source = $('#published-template').html();
-  console.log(source);
+
   var template = Handlebars.compile(source);
   var newHtml = template(storyList);
-  console.log(newHtml);
+
   $('#publish').prepend(newHtml);
 }
 });//end doc ready
