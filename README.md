@@ -9,22 +9,27 @@ Use this app to exercise your creative writing skills. Write a story about the p
 * CSS
 * Bootstrap
 * Handlebars
-* Jquery
-* Mongodb
+* jQuery
+* MongoDB
 * Express
 * AJAX
 
 ## Existing Features
 
 * Users can post stories and pen names.
-* A user can access a list of animal profiles and edit/delete existing profiles
-*
+* Create and post a Short story based on a picture displayed on the website
+* Delete Stories
+* Read stories that other users have created
+* Stories and edit options display in modal window
 
 ## Planned Features
 
-* Create a plotted map that will have different animal icons in their native habitat
-* Clickable icons that will pull up an animals profile in a modal window
-* API access for sharing facts/animal profiles on Facebook
+* Character counter
+* User Logins
+* User Profiles where collections of stories can be seen in each user's account
+* Ability to vote up stories and leave comments
+* Display a variety of different pictures that will navigate to other pages, giving users different theme options.
+* Text tools (changing font color, styles, and italics.)
 
 ## Screenshots
-![Alt Text](https://github.com/Srhbnnstr/project-1/blob/master/Screenshot.png "screenshot")
+![Alt Text](https://github.com/
