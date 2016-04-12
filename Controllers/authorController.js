@@ -19,7 +19,7 @@ function create(req, res) {
   });
 }
 
-// //delete
+//delete
 // function destroy(req, res) {
 //   db.Story.findById(req.params.storyId, function(err, foundStory) {
 //     console.log(foundStory);
@@ -36,6 +36,7 @@ function create(req, res) {
 //       res.send(404);
 //     }
 //   });
+
 
 // }
 // //update author
@@ -62,8 +63,8 @@ function create(req, res) {
 // export public methods here
 module.exports = {
   index: index,
-  create: create,
+  create: create
   // show: show,
-  // destroy: destroy,
+  // destroy: destroy
   // update: update
 };

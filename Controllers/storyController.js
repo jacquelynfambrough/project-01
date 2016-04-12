@@ -75,12 +75,16 @@ function index(req, res) {
   //  }
 
 
-  //  function destroy(req, res) {
-  //    db.Story.findOneAndRemove({ _id: req.params.storyId }, function(err, foundStory){
-  //      // note you could send just send 204, but we're sending 200 and the deleted entity
-  //      res.json(foundStory);
-  //    });
-  //  }
+   function destroy(req, res) {
+    db.Story.findOneAndRemove({ _id: req.params.storyId }, function(err, foundStory){
+      if (err){
+        return console.log("index error:", err);
+      }
+        res.json(foundStory);
+      });
+  
+    }
+
 
 
 
@@ -88,8 +92,8 @@ function index(req, res) {
 // export public methods here
 module.exports = {
   index: index,
-  create: create
+  create: create,
   // show: show,
-  // destroy: destroy,
+  destroy: destroy
   // update: update
 };

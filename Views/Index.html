@@ -109,6 +109,7 @@
 
 
 
+
           <!-- one album -->
             <div class="row">
 
@@ -125,7 +126,8 @@
                           <li class="list-group-item">
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#story-{{_id}}">
+
                             <i>{{title}}</i>
                             </button>
 
@@ -136,8 +138,10 @@
                                <button type="button" class="btn btn-default btn-md"
                                 data-toggle="modal" data-target="#myEditModal">
                                   <span class="glyphicon glyphicon-pencil"></span>
-                                </button>
-                                  <span class="glyphicon glyphicon-remove"></span>
+                               </button>
+                               <button type="button" class="btn btn-danger btn-md" glyphid = {{_id}} >
+                               <span class="glyphicon glyphicon-remove"></span></button>
+
 
 
 
@@ -157,7 +161,7 @@
                  <!-- end one album -->
 
                  <!-- Modal -->
-                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal fade" id="story-{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -166,7 +170,7 @@
                         </div>
                         <div class="modal-body">
                           {{content}}
-                        </div>    
+                        </div>
                       </div>
                     </div>
                   </div>
