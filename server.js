@@ -40,7 +40,7 @@ app.post('/api/stories', controllers.story.create);
 
 app.delete('/api/stories/:storyId', controllers.story.destroy);
 //
-// app.put('/api/stories/:storyId', controllers.story.update);
+app.put('/api/stories/:storyId', controllers.story.update);
 
 //author
 //

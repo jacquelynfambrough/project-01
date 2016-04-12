@@ -45,22 +45,22 @@ function index(req, res) {
   //  }
 
 
-  //  function update(req, res) {
-  //    console.log('updating with data', req.body);
-  //    db.Story.findById(req.params.storyId)
-  //     .populate('author')
-  //     .exec(function(err, foundStory) {
-  //      if(err) { console.log('storyController.update error', err); }
-  //      foundStory.email = req.body.email;
-  //      foundStory.pseudonym = req.body.pseudonym;
-  //      foundStory.genres = [req.body.genre];
-  //      foundStory.save(function(err, savedStory) {
-  //        if(err) { console.log('save fail'); }
-  //        res.json(savedStory);
-  //      });
-  //    });
-   //
-  //  }
+   function update(req, res) {
+     console.log('updating with data', req.body);
+     db.Story.findById(req.params.storyId)
+      .populate('author')
+      .exec(function(err, foundStory) {
+       if(err) { console.log('storyController.update error', err); }
+       foundStory.email = req.body.email;
+       foundStory.pseudonym = req.body.pseudonym;
+       foundStory.genres = [req.body.genre];
+       foundStory.save(function(err, savedStory) {
+         if(err) { console.log('save fail'); }
+         res.json(savedStory);
+       });
+     });
+
+   }
 
 
 
@@ -82,7 +82,7 @@ function index(req, res) {
       }
         res.json(foundStory);
       });
-  
+
     }
 
 
@@ -94,6 +94,6 @@ module.exports = {
   index: index,
   create: create,
   // show: show,
-  destroy: destroy
-  // update: update
+  destroy: destroy,
+  update: update
 };
