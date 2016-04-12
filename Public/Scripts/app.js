@@ -48,62 +48,63 @@ function handleDeleteStoryClick(e){
     // use the template's #each to render all songs at once
     // note that DELETE/PUT will need the albumId to construct the URL,
     //   so we'll plant that on the form too
-    songsForms = template({songs: songs, albumId: albumId});
+    storyForms = template({title: title, author: author, email: email, genres: genres, content: content });
     // find the modal's body and replace it with the generated html
-    $('#editSongsModalBody').html(songsForms);
+    $('#myEditModal').html(storyForms);
   }
 
   // when the edit button for an album is clicked
-  function handleAlbumEditClick(e) {
-    var $albumRow = $(this).closest('.album');
-    var albumId = $albumRow.data('album-id');
-    console.log('edit album', albumId);
+  function handleStoryEditClick(e) {
+    var $storyRow = $(this).closest('.');
+    var storyId = $storyRow.data('story-id');
+    console.log('edit story', storyId);
 
     // show the save changes button
-    $albumRow.find('.save-album').toggleClass('hidden');
+    $storyRow.find('.save-story').toggleClass('hidden');
     // hide the edit button
-    $albumRow.find('.edit-album').toggleClass('hidden');
+    $storyRow.find('.edit-story').toggleClass('hidden');
 
 
     // get the album name and replace its field with an input element
-    var albumName = $albumRow.find('span.album-name').text();
-    $albumRow.find('span.album-name').html('<input class="edit-album-name" value="' + albumName + '"></input>');
+    var storyName = $storyRow.find('span.story-name').text();
+    $storyRow.find('span.story-name').html('<input class="edit-story-name" value="' + storyName + '"></input>');
 
     // get the artist name and replace its field with an input element
-    var artistName = $albumRow.find('span.artist-name').text();
-    $albumRow.find('span.artist-name').html('<input class="edit-artist-name" value="' + artistName + '"></input>');
+    var authorName = $storyRow.find('span.author-name').text();
+    $storyRow.find('span.author-name').html('<input class="edit-author-name" value="' + authorName + '"></input>');
 
     // get the releasedate and replace its field with an input element
-    var releaseDate = $albumRow.find('span.album-releaseDate').text();
-    $albumRow.find('span.album-releaseDate').html('<input class="edit-album-releaseDate" value="' + releaseDate + '"></input>');
+    var releaseDate = $storyrow.find('span.album-releaseDate').text();
+    $storyRow.find('span.story-releaseDate').html('<input class="edit-story-releaseDate" value="' + releaseDate + '"></input>');
   }
 
   // after editing an album, when the save changes button is clicked
   function handleSaveChangesClick(e) {
-    var albumId = $(this).parents('.album').data('album-id'); // $(this).closest would have worked fine too
-    var $albumRow = $('[data-album-id=' + albumId + ']');
+    var storyId = $(this).parents('.story').data('story-id'); // $(this).closest would have worked fine too
+    var $storyRow = $('[data-syotu-id=' + storyId + ']');
 
     var data = {
-      name: $albumRow.find('.edit-album-name').val(),
-      artistName: $albumRow.find('.edit-artist-name').val(),
-      releaseDate: $albumRow.find('.edit-album-releaseDate').val()
+      pseudonym: $storyRow.find('.edit-story-psdeudonym').val(),
+      email: $storyRow.find('.edit-author-name').val(),
+      genres: $storyRow.find('.edit-story-releaseDate').val()
+      content: $storyRow.find('.edit-story-content').val()
     };
-    console.log('PUTing data for album', albumId, 'with data', data);
+    console.log('PUTing data for album', storyId, 'with data', data);
 
     $.ajax({
       method: 'PUT',
-      url: '/api/albums/' + albumId,
+      url: '/api/stories/' + albumId,
       data: data,
-      success: handleAlbumUpdatedResponse
+      success: handleStoryUpdatedResponse
     });
   }
 
-  function handleAlbumUpdatedResponse(data) {
+  function handleStoryUpdatedResponse(data) {
     console.log('response to update', data);
 
-    var albumId = data._id;
+    var storyId = data._id;
     // scratch this album from the page
-    $('[data-album-id=' + albumId + ']').remove();
+    $('[data-album-id=' + storyId + ']').remove();
     // and then re-draw it with the updates ;-)
     renderStories(data);
 
