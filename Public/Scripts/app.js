@@ -3,7 +3,7 @@
 $(document).ready(function() {
 console.log("Sanity check! app.js running");
 
-var $storyItem = ""
+
 //getting data from seed
   $.get('/api/stories').success(function (stories) {
     stories.forEach(function(story) {
@@ -25,16 +25,29 @@ var $storyItem = ""
     $(this).trigger("reset");
 
   });
-      // function handleDeleteClick(e) {
-      //   // var animalId = $(this).parents('.animal').data('animal-id');
-      //   var glyphicon = $(this).closest('id');
-      //   console.log('deleting animal', animalId);
-      //   // $.ajax({
-      //   //   url: '/api/stories/:id' + $(animalId.attributes.AniId.value),
-      //   //   method: 'DELETE',
-      //   //   success: handleDeleteAnimalSuccess
-      //   });
-      // }
+
+$('#publish').on('click', '.btn-danger', handleDeleteStoryClick);
+
+function handleDeleteStoryClick(e){
+    var dangerId = $(this).closest('id');
+    $.ajax({
+    method:'DELETE',
+     url:'/api/stories/:storyId' + e.attributes.handleid.value,
+    success: handleDeleteonSuccess
+  });
+
+  };
+
+function handleDeleteonSuccess(data) {
+ var deletedStory = data._id;
+ console.log('removing ', deletedStory, 'from page');
+ $('div[data-story-id=' + deletedStory + ']').remove();
+}
+
+
+
+
+
 
 
       // updating data in modal window
