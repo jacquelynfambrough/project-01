@@ -8,37 +8,37 @@ function index(req, res) {
     res.json(foundAuthor);
   });
 }
-
-
-function create(req, res) {
-  console.log('body', req.body);
-  db.Author.create(req.body, function(err, createdAuthor){
-    console.log('createdauthor', createdAuthor);
-    res.json(createdAuthor);
-
-  });
-}
-
-//delete
-// function destroy(req, res) {
-//   db.Story.findById(req.params.storyId, function(err, foundStory) {
-//     console.log(foundStory);
-//     // finding author within story
-//     var correctAuthor = foundStory.author.id(req.params.authorId);
-//     if (correctAuthor) {
-//       correctAuthor.remove();
-//       // resaving Story
-//       foundStory.save(function(err, saved) {
-//         // console.log('REMOVED ', correctAuthors.pseudonym, 'FROM ', saved.authors);
-//         res.json(correctAuthor);
-//       });
-//     } else {
-//       res.send(404);
-//     }
+//
+//
+// function create(req, res) {
+//   console.log('body', req.body);
+//   db.Author.create(req.body, function(err, createdAuthor){
+//     console.log('createdauthor', createdAuthor);
+//     res.json(createdAuthor);
+//
 //   });
-
-
 // }
+//
+// //delete
+// // function destroy(req, res) {
+// //   db.Story.findById(req.params.storyId, function(err, foundStory) {
+// //     console.log(foundStory);
+// //     // finding author within story
+// //     var correctAuthor = foundStory.author.id(req.params.authorId);
+// //     if (correctAuthor) {
+// //       correctAuthor.remove();
+// //       // resaving Story
+// //       foundStory.save(function(err, saved) {
+// //         // console.log('REMOVED ', correctAuthors.pseudonym, 'FROM ', saved.authors);
+// //         res.json(correctAuthor);
+// //       });
+// //     } else {
+// //       res.send(404);
+// //     }
+// //   });
+//
+//
+// // }
 // //update author
 // function update(req, res) {
 //   db.Story.findById(req.params.storyId, function(err, foundStory) {
@@ -57,13 +57,13 @@ function create(req, res) {
 //       res.send(404);
 //     }
 //   });
-
+//
 // }
 
 // export public methods here
 module.exports = {
   index: index,
-  create: create
+  // create: create,
   // show: show,
   // destroy: destroy
   // update: update
