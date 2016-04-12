@@ -1,7 +1,7 @@
 // models/stories.js
 var mongoose = require('mongoose'),
 Schema = mongoose.Schema,
-Author = require('./Author');
+Author = require('./author');
 
 
 var StorySchema = new Schema ({

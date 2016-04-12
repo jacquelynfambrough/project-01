@@ -31,5 +31,18 @@ Use this app to exercise your creative writing skills. Write a story about the p
 * Display a variety of different pictures that will navigate to other pages, giving users different theme options.
 * Text tools (changing font color, styles, and italics.)
 
-## Screenshots
-![Alt Text](https://github.com/
+###Triumphs
+
+* Although I still need to get update up and touch up most of my functions, I got most of it to operate. Hooray!
+*
+
+###Challenges
+
+* Umm pretty much everything. Update is still a huge challenge for me.
+
+
+###Words of Wisdom
+
+* I guess I'll say you should sleep... because I didn't very much and it was not helpful in this process.
+* Also, it's okay to cry. You might feel better after.
+* A friend in need is a friend indeed. Get help if you need it! That got me through most of this project. 
