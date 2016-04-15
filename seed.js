@@ -28,41 +28,40 @@ var authorList = [
   }];
 
 
-  db.Author.remove({}, function(err, authors) {
-    console.log('removed all authors');
-    db.Author.create(authorList, function(err, authors){
-      if (err) {
-        console.log(err);
-        return;
-      }
-      console.log('recreated all authors', authorList);
+db.Author.remove({}, function(err, authors) {
+  console.log('removed all authors');
+  db.Author.create(authorList, function(err, authors){
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log('recreated all authors', authorList);
 
 
+    db.Story.remove({}, function(err, stories){
+      console.log('removed all stories');
+      storyList.forEach(function (storyData) {
+        var story = new db.Story({
+          title: storyData.title,
+          genres: [storyData.genre],
+          content: storyData.content
+        });
+        db.Author.findOne({pseudonym: storyData.author}, function (err, foundAuthor) {
 
-      db.Story.remove({}, function(err, stories){
-        console.log('removed all stories');
-        storyList.forEach(function (storyData) {
-          var story = new db.Story({
-            title: storyData.title,
-            genres: [storyData.genre],
-            content: storyData.content
-          });
-          db.Author.findOne({pseudonym: storyData.author}, function (err, foundAuthor) {
-
+          if (err) {
+            console.log(err);
+            return;
+          }
+          story.author = foundAuthor;
+          story.save(function(err, savedStory){
             if (err) {
-              console.log(err);
-              return;
+              return console.log(err);
             }
-            story.author = foundAuthor;
-            story.save(function(err, savedStory){
-              if (err) {
-                return console.log(err);
-              }
 
-            });
           });
         });
       });
-
     });
+
   });
+});
