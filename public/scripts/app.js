@@ -3,9 +3,6 @@
 $(document).ready(function() {
 console.log("Sanity check! app.js running");
 
-
-
-
   //getting stories
   $.get('/api/stories').success(function (stories) {
     stories.forEach(function(story) {
@@ -37,12 +34,49 @@ console.log("Sanity check! app.js running");
     });
   };
 
+//   //update ajax call
+//   $('#publish').delegate('.editButton', "click", function(){
+//   // $('#editModalWindow').on('submit', function(event){
+//     var $form = $(this).closest('form');
+//     pseudonym: $form.find('input.pseudonym').val();
+//     email: $form.find('input.email').val();
+//     genres: $form.find('input.genre').val();
+//     title: $form.find('input.title').val();
+//     content:$form.find('input.content').val();
+//
+// });
+// var pub = {
+//   pseudonym: $pseudonym.val(),
+//   email: $email.val(),
+//   genres: $genre.val(),
+//   title: $title.val(),
+//   content: $content.val()
+// };
+// $.ajax({
+//   method:'PUT',
+//   url: '/api/stories' + $form.attr('.data-story-id'),
+//   data: publish,
+//   success: function (editedStory) {
+//     $form.find('span.pseudonym').html(pub.pseudonym);
+//     $form.find('span.pseudonym').html(pub.email);
+//     $form.find('span.pseudonym').html(pub.genre);
+//     $form.find('span.pseudonym').html(pub.title);
+//     $form.find('span.pseudonym').html(pub.content);
+//     $form.removeClass('edit');
+//   },
+//   error: function(){
+//     console.log('updating error', err);
+//   }
+// });
+// // });
+
+
   ///delete function
   function handleDeleteonSuccess(data) {
     var deletedStory = data._id;
     console.log('removing ', deletedStory, 'from page');
     $('div[data-story-id=' + deletedStory + ']').remove();
-    location.reload();
+    location.reload();//reloads page to remove deleted story. cannot seem to figure out how to do it without page reload.
   };
 
   //renderStories function

@@ -1,6 +1,6 @@
 var db = require('../models')
 
-// get response 
+// get response
 function index(req, res) {
     db.Story.find({})
         .populate('author')

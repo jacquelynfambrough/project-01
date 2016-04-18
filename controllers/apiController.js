@@ -1,10 +1,10 @@
 function index(req, res) {
   res.json({
-    message: "Hello"
-    // documentation_url: "https://github.com/tgaff/tunely/api.md",
-    // base_url: "http://tunely.herokuapp.com",
+    // message: "Project-01 Jacquelyn Fambrough"
+    // documentation_url: "https://github.com/jacquelynfambrough/project-01",
+    // base_url: "https://secure-badlands-39869.herokuapp.com/",
     // endpoints: [
-    //   {method: "GET", path: "/api", description: "Describes available endpoints"}
+    //  {method: "GET", path: "/api/", description: "Describes available endpoints"}
     // ]
   });
 }

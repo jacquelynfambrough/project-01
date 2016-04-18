@@ -134,7 +134,7 @@
                              - Email:<u>{{author.email}}</u>
                              <li class="list-group-item">
                                <span class='story-genre'>Genre:{{genres}}</span>
-                               <button type="button" class="btn btn-default btn-md"
+                               <button type="editButton" class="btn btn-default btn-md"
                                 data-toggle="modal" data-target="#myEditModal">
                                   <span class="glyphicon glyphicon-pencil"></span>
                                </button>
@@ -188,18 +188,14 @@
                                 </div>
                                 <div class="modal-body">
                                   <!-- Text input: Pen Name-->
-
+                                  <form class = "editModalWindow" id= "editModalWindow">
                                     <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="edit-story-psdeudonym" required="">{{author.pseudonym}}</input>
-
                                     <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="edit-author-email" required="">{{author.email}}</input>
-
                                     <input id="genre" name="genre" type="text" placeholder="Genre" class="edit-story-genres" required="">{{genres}}</input>
-
                                     <input id="title" name="title" type="text" placeholder="Story Title" class="edit-story-title" required="">{{title}}</input>
-
                                     <textarea class="edit-story-content" id="content" name="content" required="" placeholder="Write your story here!">{{content}}</textarea>
-
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit Changes</button>
+                                    <button id="editButton" name="editButton" class="btn btn-primary">Submit Changes</button>
+                                  </form>
 
                                 </div>
 
