@@ -3,7 +3,7 @@ var db = require('../models')
 // get response
 function index(req, res) {
     db.Story.find({})
-        .populate('author', 'email')
+        .populate('author')
         .exec(function(err, foundStories) {
             if (err) {
                 return console.log("index error:", err);
@@ -21,7 +21,7 @@ function create(req, res) {
         content: req.body.content
     });
     var newAuthor = new db.Author({pseudonym: req.body.pseudonym, email: req.body.email});
-
+    newAuthor.save();
     newStory.author = newAuthor._id;
     console.log("newAuthor printing:", newAuthor);
     console.log("newStory printing:", newStory);
@@ -29,14 +29,7 @@ function create(req, res) {
         if (err) {
             return console.log("an error on SAVE: " + err);
         }
-        console.log("saved, ", oneStory);
-        console.log(oneStory.populate('author', 'email')
-        .exec(function(err, taco){
-            if (err) {
-                return console.log("index error:", err);
-            }
-            console.log("printing foundStories:", foundStories);
-            res.json(foundStories););
+
         res.json(oneStory);
     });
 }
