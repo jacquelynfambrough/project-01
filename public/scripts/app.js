@@ -19,6 +19,7 @@ console.log("Sanity check! app.js running");
     $.post('/api/stories', formData, function(story) {
       console.log('story after POST', story);
       renderStories(story);  //render the server's response
+      location.reload();
     });
     // $(this).trigger("reset");
   });
