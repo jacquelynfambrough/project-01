@@ -4,7 +4,8 @@ $(document).ready(function() {
 console.log("Sanity check! app.js running");
 
   //getting stories
-  $.get('/api/stories').success(function (stories) {
+  $.get('/api/stories/').success(function (stories) {
+    console.log(stories);
     stories.forEach(function(story) {
       renderStories(story);
     });
@@ -19,7 +20,7 @@ console.log("Sanity check! app.js running");
       console.log('story after POST', story);
       renderStories(story);  //render the server's response
     });
-    $(this).trigger("reset");
+    // $(this).trigger("reset");
   });
 
   //delete ajax call
@@ -46,22 +47,21 @@ console.log("Sanity check! app.js running");
 //
 // });
 // var pub = {
-//   pseudonym: $pseudonym.val(),
-//   email: $email.val(),
-//   genres: $genre.val(),
-//   title: $title.val(),
-//   content: $content.val()
+//   pseudonym: author.pseudonym.val(),
+//   email: author.email.val(),
+//   genres: genre.val(),
+//   title: title.val(),
+//   content: content.val()
 // };
 // $.ajax({
 //   method:'PUT',
-//   url: '/api/stories' + $form.attr('.data-story-id'),
-//   data: publish,
+//   url: '/api/stories/' + $form.attr('.data-story-id'),
 //   success: function (editedStory) {
 //     $form.find('span.pseudonym').html(pub.pseudonym);
-//     $form.find('span.pseudonym').html(pub.email);
-//     $form.find('span.pseudonym').html(pub.genre);
-//     $form.find('span.pseudonym').html(pub.title);
-//     $form.find('span.pseudonym').html(pub.content);
+//     $form.find('span.email').html(pub.email);
+//     $form.find('span.genre').html(pub.genre);
+//     $form.find('span.title').html(pub.title);
+//     $form.find('span.content').html(pub.content);
 //     $form.removeClass('edit');
 //   },
 //   error: function(){
@@ -69,7 +69,7 @@ console.log("Sanity check! app.js running");
 //   }
 // });
 // // });
-
+//
 
   ///delete function
   function handleDeleteonSuccess(data) {

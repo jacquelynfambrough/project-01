@@ -3,11 +3,12 @@ var db = require('../models')
 // get response
 function index(req, res) {
     db.Story.find({})
-        .populate('author')
+        .populate('author', 'email')
         .exec(function(err, foundStories) {
             if (err) {
                 return console.log("index error:", err);
             }
+            console.log("printing foundStories:", foundStories);
             res.json(foundStories);
         });
 }
@@ -17,18 +18,25 @@ function create(req, res) {
     var newStory = new db.Story({
         title: req.body.title,
         genres: [req.body.genre],
-        content: req.body.content,
+        content: req.body.content
     });
-    var author = new db.Author({
-        pseudonym: req.body.pseudonym,
-        email: req.body.email
-    });
-    newStory.author = author;
+    var newAuthor = new db.Author({pseudonym: req.body.pseudonym, email: req.body.email});
+
+    newStory.author = newAuthor._id;
+    console.log("newAuthor printing:", newAuthor);
+    console.log("newStory printing:", newStory);
     newStory.save(function(err, oneStory) {
         if (err) {
             return console.log("an error on SAVE: " + err);
         }
         console.log("saved, ", oneStory);
+        console.log(oneStory.populate('author', 'email')
+        .exec(function(err, taco){
+            if (err) {
+                return console.log("index error:", err);
+            }
+            console.log("printing foundStories:", foundStories);
+            res.json(foundStories););
         res.json(oneStory);
     });
 }
