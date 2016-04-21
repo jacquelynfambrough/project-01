@@ -134,15 +134,13 @@
                              <p>Email:<u>{{author.email}}</u></p>
                              <li class="list-group-item">
                                <span class='story-genre'>Genre:{{genres}}</span>
-                               <button type="editButton" class="btn btn-default btn-md"
-                                data-toggle="modal" data-target="#myEditModal">
+                               <!--button to edit modal-->
+                               <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#editModal">
                                   <span class="glyphicon glyphicon-pencil"></span>
-                               </button>
+                                </button>
+                               <!--button to story modal-->
                                <button type="button" class="btn btn-danger btn-md" data-story-id="{{_id}}" >
                                <span class="glyphicon glyphicon-remove"></span></button>
-
-
-
 
                              </li>
                              <li class="list-group-item">
@@ -157,6 +155,8 @@
                      </div>
                    </div>
                  </div>
+               </div>
+              </section>
                  <!-- end one album -->
 
                  <!-- Modal -->
@@ -175,35 +175,44 @@
                   </div>
 
 
+                                    <!-- Edit Story Modal -->
+                  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Edit Story</h4>
 
-                          <!-- modal to display edit window-->
+                          <!--edit forms-->
+                   	      <div class="form-group">
+                   	        <input type="text" class="form-control" placeholder="Title">
+                   	      </div>
+                   	      <div class="form-group">
+                   	        <input type="text" class="form-control" placeholder="Pen Name">
+                   	      </div>
+                          <div class="form-group">
+                   	        <input type="text" class="form-control" placeholder="Email">
+                   	      </div>
+                   	      <div class="form-group">
+                   	        <input type="text" class="form-control" placeholder="Genre">
+                   	      </div>
+                   	      <div class="form-group">
+                   	        <textarea type="textarea" class="form-control" placeholder="Release Date"></textarea>
+                   	      </div>
 
-                          <div class="modal fade" id="myEditModal" tabindex="-1" role="dialog" aria-labelledby="myEditModalLabel">
-                            <div class="modal-dialog2" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span></button>
-                                  <h4 class="modal-title" id="myEditModalLabel">{{title}}</h4>
-                                </div>
-                                <div class="modal-body">
-                                  <!-- Text input: Pen Name-->
-                                  <form class = "editModalWindow" id= "editModalWindow">
-                                    <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="edit-story-psdeudonym" required="">{{author.pseudonym}}</input>
-                                    <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="edit-author-email" required="">{{author.email}}</input>
-                                    <input id="genre" name="genre" type="text" placeholder="Genre" class="edit-story-genres" required="">{{genres}}</input>
-                                    <input id="title" name="title" type="text" placeholder="Story Title" class="edit-story-title" required="">{{title}}</input>
-                                    <textarea class="edit-story-content" id="content" name="content" required="" placeholder="Write your story here!">{{content}}</textarea>
-                                    <button id="editButton" name="editButton" class="btn btn-primary">Submit Changes</button>
-                                  </form>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+</div>            <!--edit modal ends-->
 
-                                </div>
 
 
 
 
       </script>
-     </div>
-    </section>
+
    </body>
   </html>

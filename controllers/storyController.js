@@ -56,6 +56,7 @@ function update(req, res) {
 
 }
 
+
 //delete
 function destroy(req, res) {
     db.Story.findOneAndRemove({
