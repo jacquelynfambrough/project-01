@@ -9,7 +9,7 @@ function index(req, res) {
   });
 }
 
-// export public methods here
+// export public methods here.
 module.exports = {
   index: index
 };
