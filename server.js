@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 
 // calling express in app variable.
 var app = express();
-
+var content = fs.readFileSync('index.html', 'utf-8');
+response.send(content);
 
 /**********
 SERVER
@@ -32,15 +33,15 @@ app.get('/', function homepage (req, res) {
 //JSON API Endpoints*************
 
 //story
-app.get('https://secure-badlands-39869.herokuapp.com/api', controllers.api.index);
+app.get('/api', controllers.api.index);
 
-app.get('https://secure-badlands-39869.herokuapp.com/api/stories', controllers.story.index);
+app.get('/api/stories', controllers.story.index);
 
-app.post('https://secure-badlands-39869.herokuapp.com/api/stories', controllers.story.create);
+app.post('/api/stories', controllers.story.create);
 
-app.delete('https://secure-badlands-39869.herokuapp.com/api/stories/:storyId', controllers.story.destroy);
+app.delete('/api/stories/:storyId', controllers.story.destroy);
 //
-app.put('https://secure-badlands-39869.herokuapp.com/api/stories/:storyId', controllers.story.update);
+app.put('/api/stories/:storyId', controllers.story.update);
 
 
 /**********
