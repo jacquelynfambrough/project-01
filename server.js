@@ -4,8 +4,7 @@ var bodyParser = require('body-parser');
 
 // calling express in app variable.
 var app = express();
-var content = fs.readFileSync('index.html', 'utf-8');
-response.send(content);
+
 
 /**********
 SERVER
