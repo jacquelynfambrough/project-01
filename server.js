@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 // calling express in app variable.
 var app = express();
-
+res.sendfile('./public/views/index.html');
 
 /**********
 SERVER
