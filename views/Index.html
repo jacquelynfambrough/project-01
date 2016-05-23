@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>A Picture worth 10,000 characters.</title>
+    <title>10k Char</title>
 
         <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -17,115 +17,95 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="./scripts/app.js"></script>
-
   </head>
+
   <body>
-    <div class="col-sm-12">
-      <div class="jumbotron">
-        <div class="container">
-          <div class="page-header">
-            <h1>A Picture Worth 10,000 Characters <br></h1>
-          </div>
-        </div>
+    <hr>
+    <div class="container" id="picture">
+      <div class= "col-md-offset-2 col-md-8 ">
+        <h1>A Picture Worth 10,000 Characters</h1>
+        <p><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/381445_10150457762608930_2041625759_n.jpg?oh=b879bc9c3ba3347839042e45dd01f037&oe=57B1C459"/></p>
       </div>
     </div>
-    <div class="col-sm-offset-3 col-sm-6 col-sm-offset-sm-3">
-      <p><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/381445_10150457762608930_2041625759_n.jpg?oh=b879bc9c3ba3347839042e45dd01f037&oe=57B1C459"/></p><br>
-    </div>
-    <section id='Story-form' class="container">
-     <div class="row">
-     <div class="col-md-12 ">
+    <hr>
 
+    <div class="container" id='Story-form'>
        <form class="newlyPublished" id="newPub">
          <fieldset>
 
            <!-- Form Name -->
-           <legend>Write a Story</legend>
-
+           <h2>Write a Story</h2>
+           <row>
 
 
            <!-- Text input: Pen Name-->
            <div class="form-group">
-             <div class="col-md-4">
-             <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required=""></input>
-
+             <div class="col-md-6 col-md-offset-3">
+             <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required=""></input><br>
             </div>
            </div>
 
 
            <!-- Text input: email-->
            <div class="form-group">
-             <div class="col-md-4" >
-             <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required=""></input>
-
+             <div class="col-md-6 col-md-offset-3">
+               <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required=""></input><br>
              </div>
            </div>
+
            <!-- Text input: Genre -->
            <div class="form-group">
-             <div class="col-md-4">
-             <input id="genre" name="genre" type="text" placeholder="Genre" class="form-control input-md" required=""></input>
-
-            </div>
+             <div class="col-md-6 col-md-offset-3">
+               <input id="genre" name="genre" type="text" placeholder="Genre" class="form-control input-md" required=""></input><br>
+             </div>
            </div>
 
            <!-- Text input: Title-->
            <div class="form-group">
-             <div class="col-md-4">
-             <input id="title" name="title" type="text" placeholder="Story Title" class="form-control input-md" required=""></input>
-
+             <div class="col-md-6 col-md-offset-3">
+               <input id="title" name="title" type="text" placeholder="Story Title" class="form-control input-md" required=""></input><br>
              </div>
            </div>
 
            <!-- Textarea: Story Content -->
            <div class="form-group">
-             <div class="col-md-12">
-
-               <textarea class="form-control" id="content" name="content" required="" placeholder="Write your story here!"></textarea>
+             <div class="col-md-offset-2 col-md-8 col-md-offset-2">
+               <textarea class="form-control" id="content" name="content" required="" placeholder="Write your story here!"></textarea><br>
+               <hr>
              </div>
            </div>
 
 
            <!-- Button -->
            <div class="form-group">
-
-             <div class="col-md-4">
-               <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+             <div class="col-md-2 col-md-offset-10">
+               <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button><br>
              </div>
            </div>
-         </fieldset>
-       </form>
-     </div>
-     </div>
-       </section>
-       <h2>Published Stories</h2>
-          </div>
-        </div>
 
-        <!-- albums! -->
+        </fieldset>
+      </form>
+     </div>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Published Stories</h2>
+  </div>
+
+
+        <!-- published stories -->
         <div id= "publish">
           <script id="published-template" type="text/x-handlebars-template">
 
 
 
 
-
-          <!-- one album -->
-            <div class="row">
-
-              <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                  <div class="panel-body">
-
-
-                  <!-- begin album internal row -->
-
-
-                      <div class="col-md-9 col-xs-12">
+                      <div class="col-md-offset-2 col-md-8 col-md-offset-2">
                         <ul class="list-group">
                           <li class="list-group-item">
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#story-{{_id}}">
+                            <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#story-{{_id}}">
 
                             <i>{{title}}</i>
                             </button>
@@ -149,9 +129,8 @@
                            </div>
                           </div>
                          <!-- end of album internal row -->
-                         <div class='panel-footer'>
-                         </div>
-                       </div>
+                        </div>
+                      </div>
                      </div>
                    </div>
                  </div>
@@ -204,9 +183,8 @@
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                           <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
-                      </div>
-                    </div>
-</div>            <!--edit modal ends-->
+
+                          <!--edit modal ends-->
 
 
 
