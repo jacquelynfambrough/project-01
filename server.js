@@ -32,15 +32,15 @@ app.get('/', function homepage (req, res) {
 //JSON API Endpoints*************
 
 //story
-app.get('/api', controllers.api.index);
+app.get('https://secure-badlands-39869.herokuapp.com/api', controllers.api.index);
 
-app.get('/api/stories', controllers.story.index);
+app.get('https://secure-badlands-39869.herokuapp.com/api/stories', controllers.story.index);
 
-app.post('/api/stories', controllers.story.create);
+app.post('https://secure-badlands-39869.herokuapp.com/api/stories', controllers.story.create);
 
-app.delete('/api/stories/:storyId', controllers.story.destroy);
+app.delete('https://secure-badlands-39869.herokuapp.com/api/stories/:storyId', controllers.story.destroy);
 //
-app.put('/api/stories/:storyId', controllers.story.update);
+app.put('https://secure-badlands-39869.herokuapp.com/api/stories/:storyId', controllers.story.update);
 
 
 /**********
