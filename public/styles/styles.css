@@ -3,7 +3,6 @@
   background-size: contain;
   color: white;
   position:fixed;
-  margin-left: -50px;
   margin-bottom: 50px;
   z-index: -1;
   height: 100vh;
@@ -21,7 +20,6 @@ h2 {
 }
 
 h1 {
-  color: red-orange;
   text-align: center;
   margin-top: 200px;
   font-size: 100px
