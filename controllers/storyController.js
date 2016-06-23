@@ -56,6 +56,13 @@ function update(req, res) {
 
 }
 
+// function update (req, res){
+//   db.Story.find({
+//     _id: req.params.storyId
+//   })
+//   console.log(req.params.storyId);
+// }
+
 
 //delete
 function destroy(req, res) {

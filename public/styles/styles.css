@@ -1,1 +1,28 @@
+.jumbotron {
+  background-image: url("../images/books.jpeg");
+  background-size: contain;
+  color: white;
+  position:fixed;
+  margin-left: -50px;
+  margin-bottom: 50px;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw
+}
 
+#bod {
+  margin-top: 600px;
+  background-color: white;
+  z-index: 1
+}
+
+h2 {
+  color: white
+}
+
+h1 {
+  color: red-orange;
+  text-align: center;
+  margin-top: 200px;
+  font-size: 100px
+}

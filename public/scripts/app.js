@@ -40,18 +40,18 @@ console.log("Sanity check! app.js running");
   ///delete function
   function handleDeleteonSuccess(data) {
     var deletedStory = data._id;
-    console.log('removing ', deletedStory, 'from page');
+    console.log('removing', deletedStory, 'from page');
     $('div[data-story-id=' + deletedStory + ']').remove();
     location.reload();//reloads page to remove deleted story. cannot seem to figure out how to do it without page reload.
   };
 
 
   // update function
-  // $('#editButton').on('submit', function handleEdit(e) {
-  //   e.preventDefault();
-  //    console.log('just clicked modal button');
-  //
-  //  });
+  $('#editButton').on('submit', function handleEdit(e) {
+    e.preventDefault();
+     console.log('just clicked modal button');
+
+   });
 
 
 

@@ -20,177 +20,178 @@
   </head>
 
   <body>
-    <hr>
-    <div class="container" id="picture">
-      <div class= "col-md-offset-2 col-md-8 ">
-        <h1>A Picture Worth 10,000 Characters</h1>
-        <p><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/381445_10150457762608930_2041625759_n.jpg?oh=b879bc9c3ba3347839042e45dd01f037&oe=57B1C459"/></p>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
       </div>
     </div>
-    <hr>
+    <h1>A Picture Worth 10k Characters</h1>
+    <div class= "container" id="bod">
+      <div class="container" id="picture">
+        <div class= "col-md-offset-2 col-md-8 ">
+          <h3>Write a piece in 10,000 characters or less about this prompt: </h3>
+          <p><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/381445_10150457762608930_2041625759_n.jpg?oh=b879bc9c3ba3347839042e45dd01f037&oe=57B1C459"/></p>
+        </div>
+      </div>
+      <hr>
 
-    <div class="container" id='Story-form'>
-       <form class="newlyPublished" id="newPub">
-         <fieldset>
+      <div class="container" id='Story-form'>
+         <form class="newlyPublished" id="newPub">
+           <fieldset>
 
-           <!-- Form Name -->
-           <h2>Write a Story</h2>
-           <row>
-
-
-           <!-- Text input: Pen Name-->
-           <div class="form-group">
-             <div class="col-md-6 col-md-offset-3">
-             <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required=""></input><br>
-            </div>
-           </div>
+             <!-- Form Name -->
+             <h2>Write a Story</h2>
+             <row>
 
 
-           <!-- Text input: email-->
-           <div class="form-group">
-             <div class="col-md-6 col-md-offset-3">
-               <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required=""></input><br>
+             <!-- Text input: Pen Name-->
+             <div class="form-group">
+               <div class="col-md-6 col-md-offset-3">
+               <input id="pseudonym" name="pseudonym" type="text" placeholder="Pen Name" class="form-control input-md" required=""></input><br>
+              </div>
              </div>
-           </div>
 
-           <!-- Text input: Genre -->
-           <div class="form-group">
-             <div class="col-md-6 col-md-offset-3">
-               <input id="genre" name="genre" type="text" placeholder="Genre" class="form-control input-md" required=""></input><br>
+
+             <!-- Text input: email-->
+             <div class="form-group">
+               <div class="col-md-6 col-md-offset-3">
+                 <input id="email" name="email" type="text" placeholder="michaeljordan@abc.com" class="form-control input-md" required=""></input><br>
+               </div>
              </div>
-           </div>
 
-           <!-- Text input: Title-->
-           <div class="form-group">
-             <div class="col-md-6 col-md-offset-3">
-               <input id="title" name="title" type="text" placeholder="Story Title" class="form-control input-md" required=""></input><br>
+             <!-- Text input: Genre -->
+             <div class="form-group">
+               <div class="col-md-6 col-md-offset-3">
+                 <input id="genre" name="genre" type="text" placeholder="Genre" class="form-control input-md" required=""></input><br>
+               </div>
              </div>
-           </div>
 
-           <!-- Textarea: Story Content -->
-           <div class="form-group">
-             <div class="col-md-offset-2 col-md-8 col-md-offset-2">
-               <textarea class="form-control" id="content" name="content" required="" placeholder="Write your story here!"></textarea><br>
-               <hr>
+             <!-- Text input: Title-->
+             <div class="form-group">
+               <div class="col-md-6 col-md-offset-3">
+                 <input id="title" name="title" type="text" placeholder="Story Title" class="form-control input-md" required=""></input><br>
+               </div>
              </div>
-           </div>
 
-
-           <!-- Button -->
-           <div class="form-group">
-             <div class="col-md-2 col-md-offset-10">
-               <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button><br>
+             <!-- Textarea: Story Content -->
+             <div class="form-group">
+               <div class="col-md-offset-2 col-md-8 col-md-offset-2">
+                 <textarea class="form-control" id="content" name="content" required="" placeholder="Write your story here!"></textarea><br>
+                 <hr>
+               </div>
              </div>
-           </div>
 
-        </fieldset>
-      </form>
-     </div>
+
+             <!-- Button -->
+             <div class="form-group">
+               <div class="col-md-2 col-md-offset-10">
+                 <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button> <br> <br> <br>
+               </div>
+             </div>
+
+          </fieldset>
+        </form>
+       </div>
+      </div>
     </div>
-  </div>
-  <div class="container">
-    <h2>Published Stories</h2>
-  </div>
+    <div class="container">
+      <h2>Published Stories</h2>
+    </div>
 
 
-        <!-- published stories -->
-        <div id= "publish">
-          <script id="published-template" type="text/x-handlebars-template">
+          <!-- published stories -->
+          <div id= "publish">
+            <script id="published-template" type="text/x-handlebars-template">
 
 
 
 
-                      <div class="col-md-offset-2 col-md-8 col-md-offset-2">
-                        <ul class="list-group">
-                          <li class="list-group-item">
+                        <div class="col-md-offset-2 col-md-8 col-md-offset-2">
+                          <ul class="list-group">
+                            <li class="list-group-item">
 
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#story-{{_id}}">
+                              <!-- Button trigger modal -->
+                              <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#story-{{_id}}">
 
-                            <i>{{title}}</i>
-                            </button>
+                              <i>{{title}}</i>
+                              </button>
 
-                              <p>Author:{{author.pseudonym}}</p>
-                             <p>Email:<u>{{author.email}}</u></p>
-                             <li class="list-group-item">
-                               <span class='story-genre'>Genre:{{genres}}</span>
-                               <!--button to edit modal-->
-                               <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#editModal">
-                                  <span class="glyphicon glyphicon-pencil"></span>
-                                </button>
-                               <!--button to story modal-->
-                               <button type="button" class="btn btn-danger btn-md" data-story-id="{{_id}}" >
-                               <span class="glyphicon glyphicon-remove"></span></button>
-
-                             </li>
-                             <li class="list-group-item">
-                               <span class='story-content'>{{content}}</span>
-                             </li>
-                           </div>
+                                <p>Author:{{author.pseudonym}}</p>
+                               <p>Email:<u>{{author.email}}</u></p>
+                               <li class="list-group-item">
+                                 <span class='story-genre'>Genre:{{genres}}</span>
+                                 <!--button to edit modal-->
+                                 <button type="button" class="btn btn-default btn-md" id= "editButton" data-toggle="modal" data-target="#editModal">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                  </button>
+                                 <!--button to story modal-->
+                                 <button type="button" class="btn btn-danger btn-md" data-story-id="{{_id}}" >
+                                 <span class="glyphicon glyphicon-remove"></span></button>
+                               </li>
+                             </div>
+                            </div>
+                           <!-- end of album internal row -->
                           </div>
-                         <!-- end of album internal row -->
                         </div>
-                      </div>
+                       </div>
                      </div>
                    </div>
                  </div>
-               </div>
-              </section>
-                 <!-- end one album -->
+                </section>
+                   <!-- end one album -->
 
-                 <!-- Modal -->
-                  <div class="modal fade" id="story-{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
-                        </div>
-                        <div class="modal-body">
-                          {{content}}
+                   <!-- Modal -->
+                    <div class="modal fade" id="story-{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+                          </div>
+                          <div class="modal-body">
+                            {{content}}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
 
-                                    <!-- Edit Story Modal -->
-                  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Edit Story</h4>
+                                      <!-- Edit Story Modal -->
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Edit Story</h4>
 
-                          <!--edit forms-->
-                   	      <div class="form-group">
-                   	        <input type="text" class="form-control" placeholder="Title">
-                   	      </div>
-                   	      <div class="form-group">
-                   	        <input type="text" class="form-control" placeholder="Pen Name">
-                   	      </div>
-                          <div class="form-group">
-                   	        <input type="text" class="form-control" placeholder="Email">
-                   	      </div>
-                   	      <div class="form-group">
-                   	        <input type="text" class="form-control" placeholder="Genre">
-                   	      </div>
-                   	      <div class="form-group">
-                   	        <textarea type="textarea" class="form-control" placeholder="Release Date"></textarea>
-                   	      </div>
+                            <!--edit forms-->
+                     	      <div class="form-group">
+                     	        <input type="text" class="form-control" placeholder="Title">
+                     	      </div>
+                     	      <div class="form-group">
+                     	        <input type="text" class="form-control" placeholder="Pen Name">
+                     	      </div>
+                            <div class="form-group">
+                     	        <input type="text" class="form-control" placeholder="Email">
+                     	      </div>
+                     	      <div class="form-group">
+                     	        <input type="text" class="form-control" placeholder="Genre">
+                     	      </div>
+                     	      <div class="form-group">
+                     	        <textarea type="textarea" class="form-control" placeholder="Release Date"></textarea>
+                     	      </div>
 
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
 
-                          <!--edit modal ends-->
-
+                            <!--edit modal ends-->
 
 
 
 
-      </script>
+          </div>
+        </script>
 
    </body>
   </html>
