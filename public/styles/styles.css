@@ -1,13 +1,7 @@
-.jumbotron {
-  background-image: url("../images/books.jpeg");
-  background-size: contain;
-  color: white;
-  position:fixed;
-  margin-left: -50px;
-  margin-bottom: 50px;
-  z-index: -1;
-  height: 100vh;
-  width: 100vw
+
+body {
+background:url("../images/books.jpeg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 #bod {
@@ -22,6 +16,11 @@ h2 {
 
 h1 {
   text-align: center;
-  margin-top: 200px;
-  font-size: 100px
+  margin-top: 230px;
+  font-size: 100px;
+  color: white
+}
+
+#Story-form {
+  text-align: center
 }
