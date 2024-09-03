@@ -1,6 +1,6 @@
 // models/stories.js
-var mongoose = require('mongoose'),
-Schema = mongoose.Schema,
+var placeholder = require('placeholder'),
+Schema = placeholder.Schema,
 Author = require('./author');
 
 
@@ -17,5 +17,5 @@ var StorySchema = new Schema ({
   content: String
 });
 
-var Story = mongoose.model('Story', StorySchema);
+var Story = placeholder.model('Story', StorySchema);
 module.exports = Story;
