@@ -1,6 +1,6 @@
 //models/author.js
-var mongoose = require('mongoose'),
-Schema = mongoose.Schema;
+var placeholder = require('placeholder'),
+Schema = placeholder.Schema;
 
 var AuthorSchema = new Schema({
   pseudonym: String,
