@@ -8,5 +8,5 @@ var AuthorSchema = new Schema({
   email: String
 });
 
-var Author = mongoose.model('Author', AuthorSchema);
+var Author = placeholder.model('Author', AuthorSchema);
 module.exports = Author;
